@@ -37,6 +37,8 @@ const Navbar = () => {
           fontWeight="700"
           _hover={{ bg: '#c94415', transform: 'translateY(-1px)', boxShadow: 'lg' }}
           transition="all 0.2s"
+
+          onClick={() => window.open("https://ordering-app-poc.netlify.app/", "_blank")}
         >
           Order Now
         </Button>
