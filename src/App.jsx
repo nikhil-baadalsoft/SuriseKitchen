@@ -31,7 +31,7 @@ function App() {
 
   const getDeviceType = () => {
     const userAgent = navigator.userAgent;
-    console.log("userAgent",userAgent)
+    console.log("userAgent", userAgent)
 
     if (/mobile/i.test(userAgent)) {
       return "MOBILE";
@@ -67,9 +67,15 @@ function App() {
       }
       console.log("Payload", payload);
       const url = "https://app-customerevents-southindia-bud0d7e9a5akhuep.southindia-01.azurewebsites.net/api/v1/Events";
-      const response = await axios.post(url,payload);
-      console.log("Response",response);
-      
+      const response = await axios.post(url, payload, {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "http://localhost:5174"
+        },
+      });
+      console.log("Response", response);
+      window.open("https://ordering-app-poc.netlify.app/")
+
 
     } catch (error) {
       console.log(error.message);
