@@ -65,6 +65,7 @@ const FoodCard = ({ item }) => {
           fontWeight="700"
           _hover={{ bg: '#2d3548', transform: 'translateY(-1px)' }}
           transition="all 0.2s"
+          onClick={() => window.open("https://ordering-app-poc.netlify.app/", "_blank")}
         >
           Order This Item
         </Button>

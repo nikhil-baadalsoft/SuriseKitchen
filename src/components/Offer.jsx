@@ -80,6 +80,7 @@ const Offer = () => {
               fontWeight="700"
               _hover={{ bg: '#c94415', transform: 'translateY(-2px)', boxShadow: 'xl' }}
               transition="all 0.2s"
+              onClick={() => window.open("https://ordering-app-poc.netlify.app/", "_blank")}
             >
               Continue to Ordering Site
             </Button>

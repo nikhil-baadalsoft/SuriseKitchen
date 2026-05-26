@@ -62,6 +62,7 @@ const Hero = () => {
               fontWeight="700"
               _hover={{ bg: '#c94415', transform: 'translateY(-2px)', boxShadow: 'xl' }}
               transition="all 0.2s"
+              onClick={() => window.open("https://ordering-app-poc.netlify.app/", "_blank")}
             >
               Start Ordering
             </Button>
