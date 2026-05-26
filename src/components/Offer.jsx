@@ -1,6 +1,6 @@
 import { Box, Flex, Text, Heading, Button } from '@chakra-ui/react'
 
-const Offer = () => {
+const Offer = ({captureEvent}) => {
   return (
     <Box
       bg="#1A1F2E"
@@ -80,7 +80,7 @@ const Offer = () => {
               fontWeight="700"
               _hover={{ bg: '#c94415', transform: 'translateY(-2px)', boxShadow: 'xl' }}
               transition="all 0.2s"
-              onClick={() => window.open("https://ordering-app-poc.netlify.app/", "_blank")}
+              onClick={() =>{captureEvent("Continue to Ordering Site")}}
             >
               Continue to Ordering Site
             </Button>

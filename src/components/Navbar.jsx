@@ -1,6 +1,6 @@
 import { Box, Flex, Text, Button } from '@chakra-ui/react'
 
-const Navbar = () => {
+const Navbar = ({captureEvent}) => {
   return (
     <Box
       position="sticky"
@@ -38,7 +38,7 @@ const Navbar = () => {
           _hover={{ bg: '#c94415', transform: 'translateY(-1px)', boxShadow: 'lg' }}
           transition="all 0.2s"
 
-          onClick={() => window.open("https://ordering-app-poc.netlify.app/", "_blank")}
+          onClick={() =>{captureEvent("Order Now")}}
         >
           Order Now
         </Button>

@@ -1,6 +1,6 @@
 import { Box, Flex, Text, Heading, Button, Image } from '@chakra-ui/react'
 
-const Hero = () => {
+const Hero = ({captureEvent}) => {
   return (
     <Box
       bg="linear-gradient(135deg, #FFF8F3 0%, #ffffff 60%)"
@@ -62,7 +62,7 @@ const Hero = () => {
               fontWeight="700"
               _hover={{ bg: '#c94415', transform: 'translateY(-2px)', boxShadow: 'xl' }}
               transition="all 0.2s"
-              onClick={() => window.open("https://ordering-app-poc.netlify.app/", "_blank")}
+              onClick={() => {captureEvent("Start Ordering")}}
             >
               Start Ordering
             </Button>
@@ -77,6 +77,7 @@ const Hero = () => {
               fontWeight="700"
               _hover={{ bg: '#1A1A1A', color: 'white', transform: 'translateY(-2px)' }}
               transition="all 0.2s"
+              onClick={() => {captureEvent("Explore Menu")}}
             >
               Explore Menu
             </Button>

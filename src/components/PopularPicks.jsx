@@ -1,7 +1,7 @@
 import { Box, Flex, Text, Heading, Button, Image, Badge, SimpleGrid } from '@chakra-ui/react'
 import { menuItems } from './menuItems'
 
-const FoodCard = ({ item }) => {
+const FoodCard = ({ item,captureEvent}) => {
   return (
     <Box
       bg="white"
@@ -65,9 +65,9 @@ const FoodCard = ({ item }) => {
           fontWeight="700"
           _hover={{ bg: '#2d3548', transform: 'translateY(-1px)' }}
           transition="all 0.2s"
-          onClick={() => window.open("https://ordering-app-poc.netlify.app/", "_blank")}
+          onClick={() => {captureEvent("Select Order ")}}
         >
-          Order This Item
+          Select Order 
         </Button>
       </Box>
     </Box>
@@ -104,6 +104,7 @@ const PopularPicks = () => {
             _hover={{ bg: '#1A1A1A', color: 'white' }}
             transition="all 0.2s"
             display={{ base: 'none', md: 'flex' }}
+            onClick={() => {captureEvent("View Full Menu")}}
           >
             View Full Menu
           </Button>
@@ -126,6 +127,7 @@ const PopularPicks = () => {
             fontSize="sm"
             fontWeight="700"
             _hover={{ bg: '#1A1A1A', color: 'white' }}
+
           >
             View Full Menu
           </Button>
