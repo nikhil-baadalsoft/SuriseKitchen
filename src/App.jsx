@@ -48,7 +48,7 @@ function App() {
     try {
 
       const payload = {
-        eventName: eventname,
+        eventName: document.title,
         eventTimestamp: new Date().toISOString(),
         customerId: crypto.randomUUID(),
         device: {
@@ -62,7 +62,7 @@ function App() {
         },
         refer: {
           url: window.location.href,
-          referrer: document.referrer || "DIRECT"
+          referrer: document.title || "DIRECT"
         },
       }
       console.log("Payload", payload);
