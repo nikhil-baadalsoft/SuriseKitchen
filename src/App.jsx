@@ -74,7 +74,7 @@ function App() {
         },
       });
       console.log("Response", response);
-      window.open("https://ordering-app-poc.netlify.app/")
+      window.open("https://locations-sunrisebagels.netlify.app/")
 
 
     } catch (error) {

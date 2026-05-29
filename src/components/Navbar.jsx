@@ -65,6 +65,7 @@ const Navbar = ({ captureEvent }) => {
             color="#1A1A1A"
             cursor="pointer"
             _hover={{ color: '#CB4617' }}
+            onClick={() => window.open("https://sunrise-catering.vercel.app/", "_blank")}
           >
             Catering
           </Text>
