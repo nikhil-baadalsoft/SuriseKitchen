@@ -47,35 +47,40 @@ function App() {
   const captureEvent = async (eventname) => {
     try {
 
-      const payload = {
-        eventName: document.title,
-        eventTimestamp: new Date().toISOString(),
-        customerId: crypto.randomUUID(),
-        device: {
-          browser: getBrowser(),
-          operatingSystem: getOperatingSystem(),
-          deviceType: getDeviceType(),
-        },
-        market: {
-          utmSource: new URLSearchParams(window.location.search).get("utm_source") || "DIRECT",
-          campaign: new URLSearchParams(window.location.search).get("utm_campaign") || "UNKNOWN",
-        },
-        refer: {
-          url: window.location.href,
-          referrer: document.title || "DIRECT"
-        },
-      }
-      console.log("Payload", payload);
-      const url = "https://app-customerevents-southindia-bud0d7e9a5akhuep.southindia-01.azurewebsites.net/api/v1/Events";
-      const response = await axios.post(url, payload, {
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "http://localhost:5174"
-        },
-      });
-      console.log("Response", response);
-      window.open("https://locations-sunrisebagels.netlify.app/")
+      // const payload = {
+      //   eventName: document.title,
+      //   eventTimestamp: new Date().toISOString(),
+      //   customerId: crypto.randomUUID(),
+      //   device: {
+      //     browser: getBrowser(),
+      //     operatingSystem: getOperatingSystem(),
+      //     deviceType: getDeviceType(),
+      //   },
+      //   market: {
+      //     utmSource: new URLSearchParams(window.location.search).get("utm_source") || "DIRECT",
+      //     campaign: new URLSearchParams(window.location.search).get("utm_campaign") || "UNKNOWN",
+      //   },
+      //   refer: {
+      //     url: window.location.href,
+      //     referrer: document.title || "DIRECT"
+      //   },
+      // }
+      // console.log("Payload", payload);
+      // const url = "https://app-customerevents-southindia-bud0d7e9a5akhuep.southindia-01.azurewebsites.net/api/v1/Events";
+      // const response = await axios.post(url, payload, {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     "Access-Control-Allow-Origin": "http://localhost:5174"
+      //   },
+      // });
+      // console.log("Response", response);
+      // window.open("https://locations-sunrisebagels.netlify.app/")
 
+      const sessionId = crypto.randomUUID();
+      const refererurl = encodeURIComponent(window.location.href);
+      const referrername = encodeURIComponent(document.title);
+      const url = `https://locations-sunrisebagels.netlify.app/?sessionId=${sessionId}&refererUrl=${refererurl}&referrerName=${referrername}`
+      window.open(url,"_blank");
 
     } catch (error) {
       console.log(error.message);
