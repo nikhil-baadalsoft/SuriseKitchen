@@ -78,7 +78,7 @@ const Offer = ({captureEvent}) => {
               py={6}
               fontSize="sm"
               fontWeight="700"
-              _hover={{ bg: '#c94415', transform: 'translateY(-2px)', boxShadow: 'xl' }}
+              _hover={{ bg: '#CB4617', transform: 'translateY(-2px)', boxShadow: 'xl' }}
               transition="all 0.2s"
               onClick={() =>{captureEvent("Continue to Ordering Site")}}
             >

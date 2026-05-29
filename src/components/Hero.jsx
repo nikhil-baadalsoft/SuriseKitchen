@@ -60,7 +60,7 @@ const Hero = ({captureEvent}) => {
               py={6}
               fontSize="sm"
               fontWeight="700"
-              _hover={{ bg: '#c94415', transform: 'translateY(-2px)', boxShadow: 'xl' }}
+              _hover={{ bg: '#CB4617', transform: 'translateY(-2px)', boxShadow: 'xl' }}
               transition="all 0.2s"
               onClick={() => {captureEvent("Start Ordering")}}
             >
@@ -86,7 +86,7 @@ const Hero = ({captureEvent}) => {
 
         <Box flex={1} maxW={{ base: '100%', md: '520px' }}>
           <Image
-            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80"
+            src="https://www.einsteinbros.com/wp-content/uploads/2026/05/EBB_Web_Mobile_800x800.png"
             alt="Fresh breakfast dishes"
             borderRadius="2xl"
             w="100%"

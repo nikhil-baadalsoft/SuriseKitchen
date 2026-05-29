@@ -20,6 +20,7 @@ export const menuItems = [
     price: 8.99,
     description: "Fresh ingredients, chef-crafted flavors, and fast delivery.",
     image: "https://ebcatering.com/usercontent/product_sub_img/EBBCatering-Category-Lunch-850x480.jpg"
+
   },
   {
     id: "4",

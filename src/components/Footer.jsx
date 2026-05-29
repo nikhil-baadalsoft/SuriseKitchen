@@ -19,7 +19,7 @@ const Footer = () => {
             letterSpacing="widest"
             textTransform="uppercase"
           >
-            Sunrise Kitchen
+            Sunrise Bagels
           </Text>
           <Text fontSize="sm" color="whiteAlpha.600" mt={1}>
             Fresh breakfast delivered to your door
@@ -27,7 +27,7 @@ const Footer = () => {
         </Box>
 
         <Text fontSize="xs" color="whiteAlpha.400">
-          © 2026 Sunrise Kitchen. All rights reserved.
+          © 2026 Sunrise Bagels. All rights reserved.
         </Text>
       </Flex>
     </Box>
