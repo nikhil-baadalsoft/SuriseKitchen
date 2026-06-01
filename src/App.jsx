@@ -69,7 +69,7 @@ function App() {
           referrer: referrername
         }
       }
-
+      console.log("EVENT_PAYLOAD =>",Payload);
       const url = "https://app-customerevents-southindia-bud0d7e9a5akhuep.southindia-01.azurewebsites.net/api/v1/Events";
       await axios.post(url, Payload, {
         headers: {
