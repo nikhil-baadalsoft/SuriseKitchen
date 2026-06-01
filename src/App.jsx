@@ -55,7 +55,7 @@ function App() {
         eventSequence: eventSequence ?? 1,
         eventTimestamp: new Date().toISOString(),
         sessionId,
-        page: window.location.href,
+        page: "MARKETING",
         customerId: "",
         device: {
           browser: getBrowser(),
