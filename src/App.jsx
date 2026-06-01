@@ -55,6 +55,8 @@ function App() {
         eventSequence: eventSequence ?? 1,
         eventTimestamp: new Date().toISOString(),
         sessionId,
+        page: window.location.href,
+        customerId: null,
         device: {
           browser: getBrowser(),
           operatingSystem: getOperatingSystem(),
