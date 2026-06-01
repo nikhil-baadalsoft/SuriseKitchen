@@ -62,7 +62,7 @@ const Hero = ({captureEvent}) => {
               fontWeight="700"
               _hover={{ bg: '#CB4617', transform: 'translateY(-2px)', boxShadow: 'xl' }}
               transition="all 0.2s"
-              onClick={() => {captureEvent("Start Ordering")}}
+              onClick={() => {captureEvent("MARKETING_START_ORDERING",2)}}
             >
               Start Ordering
             </Button>
@@ -77,7 +77,8 @@ const Hero = ({captureEvent}) => {
               fontWeight="700"
               _hover={{ bg: '#1A1A1A', color: 'white', transform: 'translateY(-2px)' }}
               transition="all 0.2s"
-              onClick={() => {captureEvent("Explore Menu")}}
+              onClick={() => {captureEvent("MARKETING_EVENT_MENU",2)}}
+
             >
               Explore Menu
             </Button>

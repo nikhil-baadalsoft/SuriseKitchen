@@ -4,6 +4,7 @@ import PopularPicks from './components/PopularPicks'
 import Offer from './components/Offer'
 import Footer from './components/Footer'
 import axios from 'axios'
+import { useEffect } from 'react'
 function App() {
 
   const getBrowser = () => {
@@ -31,7 +32,6 @@ function App() {
 
   const getDeviceType = () => {
     const userAgent = navigator.userAgent;
-    console.log("userAgent", userAgent)
 
     if (/mobile/i.test(userAgent)) {
       return "MOBILE";
@@ -44,49 +44,50 @@ function App() {
     return "DESKTOP";
   };
 
-  const captureEvent = async (eventname) => {
+  const captureEvent = async (eventname,eventSequence) => {
     try {
-
-      // const payload = {
-      //   eventName: document.title,
-      //   eventTimestamp: new Date().toISOString(),
-      //   customerId: crypto.randomUUID(),
-      //   device: {
-      //     browser: getBrowser(),
-      //     operatingSystem: getOperatingSystem(),
-      //     deviceType: getDeviceType(),
-      //   },
-      //   market: {
-      //     utmSource: new URLSearchParams(window.location.search).get("utm_source") || "DIRECT",
-      //     campaign: new URLSearchParams(window.location.search).get("utm_campaign") || "UNKNOWN",
-      //   },
-      //   refer: {
-      //     url: window.location.href,
-      //     referrer: document.title || "DIRECT"
-      //   },
-      // }
-      // console.log("Payload", payload);
-      // const url = "https://app-customerevents-southindia-bud0d7e9a5akhuep.southindia-01.azurewebsites.net/api/v1/Events";
-      // const response = await axios.post(url, payload, {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     "Access-Control-Allow-Origin": "http://localhost:5174"
-      //   },
-      // });
-      // console.log("Response", response);
-      // window.open("https://locations-sunrisebagels.netlify.app/")
-
+      const queryParams = new URLSearchParams(window.location.search);
       const sessionId = crypto.randomUUID();
       const refererurl = encodeURIComponent(window.location.href);
       const referrername = encodeURIComponent(document.title);
-      const url = `https://locations-sunrisebagels.netlify.app/?sessionId=${sessionId}&refererUrl=${refererurl}&referrerName=${referrername}`
-      window.open(url,"_blank");
+      const Payload = {
+        eventName:eventname,
+        eventSequence: eventSequence ?? 1,
+        eventTimestamp: new Date().toISOString(),
+        sessionId,
+        device: {
+          browser: getBrowser(),
+          operatingSystem: getOperatingSystem(),
+          deviceType: getDeviceType(),
+        },
+        market: {
+          utmSource: queryParams.get("utm_source") || "DIRECT",
+          campaign: queryParams.get("utm_campaign") || "UNKNOWN",
+        },
+        referrer: {
+          url: refererurl,
+          referrer: referrername
+        }
+      }
+
+      const url = "https://app-customerevents-southindia-bud0d7e9a5akhuep.southindia-01.azurewebsites.net/api/v1/Events";
+      await axios.post(url, Payload, {
+        headers: {
+          "Content-Type":
+            "application/json",
+        },
+      })
+      const navigateurl = `https://sunrisebagels-ordering.vercel.app/locations/?sessionId=${sessionId}&refererUrl=${refererurl}&referrerName=${referrername}`
+      window.open(navigateurl, "_blank");
 
     } catch (error) {
       console.log(error.message);
     }
   };
 
+  useEffect(()=>{
+    captureEvent()
+  },[])
   return (
     <>
       <Navbar captureEvent={captureEvent} />

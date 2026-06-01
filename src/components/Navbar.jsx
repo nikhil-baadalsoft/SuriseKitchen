@@ -65,8 +65,7 @@ const Navbar = ({ captureEvent }) => {
             color="#1A1A1A"
             cursor="pointer"
             _hover={{ color: '#CB4617' }}
-            onClick={() => window.open("https://sunrise-catering.vercel.app/", "_blank")}
-          >
+            onClick={() => window.open("https://sunrisebagels-catering.vercel.app/", "_blank")}>
             Catering
           </Text>
         </HStack>
@@ -87,7 +86,7 @@ const Navbar = ({ captureEvent }) => {
             }}
             transition="all 0.2s"
             onClick={() => {
-              captureEvent('Order Now')
+              captureEvent('MARKETING_ORDER_NOW_CLICKED',2)
             }}
           >
             Order Now
