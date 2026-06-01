@@ -86,7 +86,7 @@ function App() {
   };
 
   useEffect(()=>{
-    captureEvent()
+    captureEvent("MARKETING_SITE_LAUNCHED")
   },[])
   return (
     <>
