@@ -77,6 +77,7 @@ function App() {
         headers: {
           "Content-Type":
             "application/json",
+            "Access-Control-Allow-Origin": "*"
         },
       })
       const navigateurl = `https://sunrisebagels-ordering.vercel.app/locations/?sessionId=${sessionId}&refererUrl=${refererurl}&referrerName=${referrername}`
