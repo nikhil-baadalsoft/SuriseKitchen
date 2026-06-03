@@ -30,7 +30,7 @@ const Navbar = ({ captureEvent }) => {
             color="#1A1A1A"
             lineHeight="1.2"
           >
-            Restaurant Marketing Site
+            Handcrafted Bagels Daily
           </Text>
         </Box>
  
