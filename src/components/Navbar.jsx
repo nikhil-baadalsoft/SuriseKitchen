@@ -1,7 +1,7 @@
 import { Box, Flex, Text, Button, HStack } from '@chakra-ui/react'
  
 const Navbar = ({ captureEvent }) => {
-  const sessionId = sessionStorage.getItem("")
+  const sessionId = sessionStorage.getItem("sessionId")
   return (
     <Box
       position="sticky"
