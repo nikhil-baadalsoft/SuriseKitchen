@@ -44,14 +44,17 @@ function App() {
     return "DESKTOP";
   };
 
-  const captureEvent = async (eventname,eventSequence) => {
+  const captureEvent = async (eventname, eventSequence) => {
     try {
       const queryParams = new URLSearchParams(window.location.search);
-      const sessionId = crypto.randomUUID();
+      let sessionId = sessionStorage.getItem("sessionId")
+      if (!sessionId) {
+        sessionId = crypto.randomUUID();
+      }
       const refererurl = encodeURIComponent(window.location.href);
       const referrername = encodeURIComponent(document.title);
       const Payload = {
-        eventName:eventname,
+        eventName: eventname,
         eventSequence: eventSequence ?? 1,
         eventTimestamp: new Date().toISOString(),
         sessionId,
@@ -71,26 +74,31 @@ function App() {
           referrer: referrername
         }
       }
-      console.log("EVENT_PAYLOAD =>",Payload);
+      console.log("EVENT_PAYLOAD =>", Payload);
       const url = "https://app-customerevents-southindia-bud0d7e9a5akhuep.southindia-01.azurewebsites.net/api/v1/Events";
       await axios.post(url, Payload, {
         headers: {
           "Content-Type":
             "application/json",
-            "Access-Control-Allow-Origin": "*"
+          "Access-Control-Allow-Origin": "*"
         },
       })
-      const navigateurl = `https://sunrisebagels-ordering.vercel.app/locations/?sessionId=${sessionId}&refererUrl=${refererurl}&referrerName=${referrername}`
-      window.open(navigateurl, "_blank");
+
+      if (eventname !== "MARKETING_SITE_LAUNCHED") {
+        const navigateurl = `https://sunrisebagels-ordering.vercel.app/locations/?sessionId=${sessionId}&refererUrl=${refererurl}&referrerName=${referrername}`
+        window.open(navigateurl, "_blank");
+      }
 
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
+    const sessionId = crypto.randomUUID();
+    sessionStorage.setItem("sessionId", sessionId)
     captureEvent("MARKETING_SITE_LAUNCHED")
-  },[])
+  }, [])
   return (
     <>
       <Navbar captureEvent={captureEvent} />

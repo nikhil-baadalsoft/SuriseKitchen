@@ -1,5 +1,5 @@
 import { Box, Flex, Text, Heading, Button, Image } from '@chakra-ui/react'
-
+import SunriseBagels from "../assets/SunriseBagelsHeroImg.png"
 const Hero = ({captureEvent}) => {
   return (
     <Box
@@ -87,7 +87,7 @@ const Hero = ({captureEvent}) => {
 
         <Box flex={1} maxW={{ base: '100%', md: '520px' }}>
           <Image
-            src="https://www.einsteinbros.com/wp-content/uploads/2026/05/EBB_Web_Mobile_800x800.png"
+            src={SunriseBagels}
             alt="Fresh breakfast dishes"
             borderRadius="2xl"
             w="100%"
