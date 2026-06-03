@@ -1,6 +1,7 @@
 import { Box, Flex, Text, Button, HStack } from '@chakra-ui/react'
  
 const Navbar = ({ captureEvent }) => {
+  const sessionId = sessionStorage.getItem("")
   return (
     <Box
       position="sticky"
@@ -65,7 +66,7 @@ const Navbar = ({ captureEvent }) => {
             color="#1A1A1A"
             cursor="pointer"
             _hover={{ color: '#CB4617' }}
-            onClick={() => window.open("https://sunrisebagels-catering.vercel.app/", "_blank")}>
+            onClick={() => window.open(`https://sunrisebagels-catering.vercel.app/?sessionId=${sessionId}`, "_blank")}>
             Catering
           </Text>
         </HStack>
